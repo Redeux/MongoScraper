@@ -1,0 +1,42 @@
+{
+  "name": "wow-general-forum-blue-tracker",
+  "version": "1.0.0",
+  "description": "Web scraper that checks for posts in the World of Warcraft General Forums from Blizzard Entertainment employees",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Redeux/WoW-General-Forum-Blue-Tracker.git"
+  },
+  "keywords": [
+    "Blue",
+    "Tracker",
+    "Blizzard",
+    "World",
+    "of",
+    "Warcraft",
+    "Forums",
+    "Scraper",
+    "MongoDB",
+    "Express",
+    "MVC",
+    "Handlebars"
+  ],
+  "author": "Phil Sautter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Redeux/WoW-General-Forum-Blue-Tracker/issues"
+  },
+  "homepage": "https://github.com/Redeux/WoW-General-Forum-Blue-Tracker#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.10.8",
+    "request": "^2.81.0"
+  }
+}
