@@ -1,14 +1,12 @@
 <!doctype html>
-
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <!-- Title -->
-  <title>WoW General Forum Blue Tracker</title>
+  <title>WoW General Forum Tracker</title>
 
   <!-- Meta -->
-  <meta name="description" content="Scrapes the World of Warcraft General Forum for Blizzard Employee Posts">
+  <meta name="description" content="Scrapes the World of Warcraft General Forum">
   <meta name="author" content="Redeux">
 
   <!-- CSS -->
@@ -20,13 +18,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
   <![endif]-->
 </head>
-
 <body>
   <!-- Nav Bar -->
   <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper blue lighten-2">
-        <a href="#" class="brand-logo">Blue Tracker</a>
+        <a href="#" class="brand-logo">WoW Forum Tracker</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li class="active"><a href="index.html">Home</a></li>
           <li><a href="#saved">Saved Posts</a></li>
@@ -39,8 +36,8 @@
   <div class="row">
     <div class="jumbotron col s12 z-depth-4 center-align">
       <div class="container">
-        <h1>WoW General Forums Blue Tracker</h1>
-        <h3 class="margin-3-btm">An Express and MongoDB Web Scraper</h3>
+        <h1>WoW General Forum Tracker</h1>
+        <h4 class="margin-3-btm">An Express and MongoDB Web Scraper</h4>
       </div>
     </div>
   </div>
@@ -52,13 +49,21 @@
     </div>
     <!-- Model Post for JQuery creation -->
     <div class="col s12">
-      <div class="card-panel deep-orange lighten-1">
-        <span class='center-align white-text'>
-          May 26 Hey all, Apologies on the last thread capping. We've upped the cap on this one, so please use this thread going forward. As we've said in the past, an offline mode is something we would like to see through the Blizzard App, and it's still being
-          looked into. We've had other projects over the past few years that have pushed this out a bit so I think our original communication may have been a bit ahead of its time, but I've made sure the team is aware that this is still a feature players
-          would like to see.</span>
+      <div class="card amber lighten-5">
+        <div class="card-content">
+          <div class="col s8">
+            <p>I am a very simple card. I am good at containing small bits of information.</p>
+            <p>Author:</p>
+            <p>Date Posted:</p>
+            <p>Comments:</p>
+          </div>
+          <div class="col s4">
+            <a class="waves-effect waves-light btn purple lighten-1 notes">Post Notes</a>
+            <a class="waves-effect waves-light btn red lighten-1 delete">Delete from Saved</a>
+            <!--<a class="waves-effect waves-light btn red lighten-1 save">Save</a>-->
+          </div>
+        </div>
       </div>
-
     </div>
   </div>
 </body>
@@ -66,5 +71,4 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
 <script src="./javascripts/app.js"></script>
-
 </html>
