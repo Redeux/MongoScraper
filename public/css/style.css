@@ -1,0 +1,9 @@
+body {}
+
+.jumbotron {
+  /*background-image: url('./../images/wow_landscape.png');*/
+}
+
+.margin-3-btm {
+  margin-bottom: 3rem;
+}
