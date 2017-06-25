@@ -1,7 +1,9 @@
-body {}
-
 .jumbotron {
   /*background-image: url('./../images/wow_landscape.png');*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #555;
+  -webkit-text-stroke: 1px #555;
 }
 
 .margin-3-btm {
