@@ -6,21 +6,21 @@ const Schema = mongoose.Schema;
 
 // Create post schema
 const PostSchema = new Schema({
+  _id: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
   },
-  link: {
+  author: {
     type: String,
     required: true,
   },
-  // author: {
-  //   type: String,
-  //   required: true,
-  // },
-  // posted: {
-  //   type: Date,
-  // },
+  preview: {
+    type: String,
+  },
   created: {
     type: Date,
     default: Date.now,
@@ -29,6 +29,8 @@ const PostSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Note',
   },
+}, {
+  _id: false,
 });
 
 // Create the Post model with in the Post Schema

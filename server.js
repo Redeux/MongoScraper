@@ -39,12 +39,14 @@ db.on('error', (err) => {
 // Use handlebars for templating
 app.engine('handlebars', exphbs({
   defaultLayout: 'main',
-  extname: '.hbs',
+  // extname: '.hbs',
 }));
-app.set('view engine', '.hbs');
+app.set('view engine', 'handlebars');
 
 // Routes
+require('./routes/htmlRoutes')(app);
 require('./routes/scrapeRoutes')(app);
+require('./routes/postRoutes')(app);
 
 // Once logged in to the db through mongoose, log a success message and start the express server
 db.once('open', () => {

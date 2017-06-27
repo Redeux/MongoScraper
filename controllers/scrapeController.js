@@ -3,7 +3,7 @@ const request = require('request');
 const cheerio = require('cheerio');
 const Post = require('../models/Post');
 
-exports.getPosts = (callback) => {
+exports.scrapePosts = (callback) => {
   request('https://us.battle.net/forums/en/wow/984270/', (error, response, html) => {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     const $ = cheerio.load(html);
@@ -18,31 +18,20 @@ exports.getPosts = (callback) => {
         .children('.ForumTopic-title')
         .text()
         .trim();
-      result.link = $(element).attr('href');
-
-
-      // Make sure there is a valid title
-      if (result.title !== '') {
-        // Check to see if the post is already in the database
+      result.preview = $(element).closest('div')
+        .children('.ForumTopic--preview')
+        .text()
+        .trim();
+      result.author = $(element).closest('div')
+        .children('.ForumTopic-author')
+        .text()
+        .trim();
+      const id = $(element).attr('href').split('/');
+      result.id = id[id.length - 1];
+      // Make sure there is a valid title and link
+      if (result.title && result.id) {
+        // Add the post to the return object
         posts.push(result);
-        // Post.find({
-        //   link: result.link,
-        // }, (err, doc) => {
-        //   if (doc.length > 0) console.log(`Skipping ${result.link} already in database ...`);
-        //   else {
-        //     console.log(`Adding ${JSON.stringify(result)} to database ...`)
-        //     // Using our Post model, create a new entry
-        //     // This effectively passes the result object to the entry (and the title and link)
-        //     const entry = new Post(result);
-        //     // Now, save that entry to the db
-        //     entry.save((err, doc) => {
-        //       // Log any errors
-        //       if (err) console.log(JSON.stringify(err));
-        //       // Or log the doc
-        //       else console.log(`Successfully added ${JSON.stringify(doc)} to database!`);
-        //     });
-        //   }
-        // });
       }
     });
     // Tell the browser that we finished scraping the text
