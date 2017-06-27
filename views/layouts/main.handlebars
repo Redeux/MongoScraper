@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Title -->
+  <title>WoW General Forum Tracker - Saved</title>
+
+  <!-- Meta -->
+  <meta name="description" content="Scrapes the World of Warcraft General Forum Saved Posts">
+  <meta name="author" content="Redeux">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper blue lighten-2">
+        <a href="#" class="brand-logo">WoW Forum Tracker</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="#saved">Saved Posts</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="row">
+    <div class="jumbotron col s12 z-depth-4 center-align white-text">
+      <div class="container">
+        <h1>World of Warcraft General Forum Tracker</h1>
+        <h4 class="margin-3-btm">A Node.js and MongoDB Web Scraper</h4>
+      </div>
+    </div>
+  </div>
+  <div id="posts" class="row">
+    <div class="col s12">
+      <div class="card-panel deep-orange lighten-1">
+        <h4 class='center-align white-text'>Saved Posts</h4>
+      </div>
+    </div>
+
+    {{{body}}}
+
+</body>
+
+</html>
