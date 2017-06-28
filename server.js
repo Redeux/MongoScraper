@@ -8,7 +8,7 @@ const logger = require('morgan');
 const path = require('path');
 // Set environment variables
 const PORT = process.env.PORT || 8080;
-const MONGODB = process.env.MONGOLAB_URI || 'mongodb://localhost/wow_forum_scraper';
+const MONGODB = process.env.MONGODB_URI || 'mongodb://localhost/wow_forum_scraper';
 // Create Express instance
 const app = express();
 
