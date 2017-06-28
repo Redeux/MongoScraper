@@ -1,1 +1,22 @@
-<p>bling blong</p>
+{{#each documents}}
+<div class="col s12" id="{{this.id}}">
+  <div class="card hoverable orange lighten-5">
+    <div class="card-content"><a class="card-title left-align" href="https://us.battle.net/forums/en/wow/topic/{{this.id}}" target="_blank">{{this.title}}</a>
+      <p>{{this.preview}}</p>
+      <p class="author">-{{this.author}}</p>
+    </div>
+    <div class="card-action">
+      <a class="waves-effect waves-light btn right-align red lighten-1 delete" data-id="{{this.id}}">Delete Post</a>
+      <a class="waves-effect waves-light btn right-align teal lighten-1 note" data-id="{{this.id}}" data-note="{{this.note.body}}" href="#noteModal">Note</a>
+    </div>
+  </div>
+</div>
+{{/each}}
+<div id="noteModal" class="modal">
+  <div class="modal-content">
+  </div>
+  <div class="modal-footer">
+    <a href="#!" id="save-note" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+    <a href="#!" id="delete-note" class="modal-action waves-effect waves-red btn-flat">Delete</a>
+  </div>
+</div>
