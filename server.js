@@ -1,7 +1,6 @@
 // Dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
-const session = require('express-session');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
