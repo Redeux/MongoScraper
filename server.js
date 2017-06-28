@@ -1,4 +1,4 @@
-// Dependencies
+// Declare dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
@@ -6,10 +6,11 @@ const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
-
-const app = express();
+// Set environment variables
 const PORT = process.env.PORT || 8080;
 const MONGODB = process.env.MONGOLAB_URI || 'mongodb://localhost/wow_forum_scraper';
+// Create Express instance
+const app = express();
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
