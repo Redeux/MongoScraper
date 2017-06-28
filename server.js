@@ -8,13 +8,14 @@ const logger = require('morgan');
 const path = require('path');
 
 const app = express();
-const PORT = 8080 || process.env.PORT;
+const PORT = process.env.PORT || 8080;
+const MONGODB = process.env.MONGOLAB_URI || 'mongodb://localhost/wow_forum_scraper';
 
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
 // Use morgan and body parser with our app
-app.use(logger('dev'));
+app.use(logger('combined'));
 app.use(bodyParser.urlencoded({
   extended: true,
 }));
@@ -27,7 +28,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Database configuration with mongoose
-mongoose.connect('mongodb://localhost/wow_forum_scraper');
+mongoose.connect(MONGODB);
 const db = mongoose.connection;
 
 // Halt server on any mongoose errors
