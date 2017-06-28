@@ -5,6 +5,7 @@ exports.savePost = (_id, post, callback) => {
   Post.find({
     _id,
   }, (err, doc) => {
+    if (err) return console.log(JSON.stringify(err));
     if (doc.length > 0) {
       console.log(`${_id} already in database`);
       return callback('existing entry');
@@ -12,11 +13,11 @@ exports.savePost = (_id, post, callback) => {
     post._id = _id;
     console.log(`Adding ${JSON.stringify(post)} to database ...`);
     // Using our Post model, create a new entry
-    const entry = new Post(post);
+    const Entry = new Post(post);
     // Now, save that entry to the db
-    entry.save((error, document) => {
+    Entry.save((err) => {
       // Log any errors
-      if (error) return console.log(JSON.stringify(error));
+      if (err) return console.log(JSON.stringify(err));
       // return a success message
       return callback('success');
     });
@@ -24,12 +25,18 @@ exports.savePost = (_id, post, callback) => {
 };
 
 exports.getAllPosts = (callback) => {
-  Post.find({}, (err, doc) => {
-    if (err) return console.log(`Error getting all posts: ${err}`);
-    return callback(doc);
-  });
+  Post.find({})
+    // populate all of the notes associated with it
+    .populate('note')
+    .exec((err, doc) => {
+      if (err) return console.log(`Error getting all posts: ${err}`);
+      return callback(doc);
+    });
 };
 
-// exports.deletePost = (id, callback) => {
-
-// };
+exports.deletePost = (_id, callback) => {
+  Post.findByIdAndRemove(_id, (err) => {
+    if (err) return console.log(`Error deleting post ${_id}: ${err}`);
+    return callback('success');
+  });
+};
