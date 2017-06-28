@@ -3,6 +3,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
@@ -23,6 +24,9 @@ app.use(bodyParser.urlencoded({
   extended: true,
 }));
 app.use(bodyParser.json());
+
+// User method override to enable DELETE and PUT 
+app.use(methodOverride('_method'));
 
 // Make public a static dir
 app.use(express.static(path.join(__dirname, 'public')));
