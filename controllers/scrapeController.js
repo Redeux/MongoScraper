@@ -1,7 +1,6 @@
 // Dependencies
 const request = require('request');
 const cheerio = require('cheerio');
-const Post = require('../models/Post');
 
 exports.scrapePosts = (callback) => {
   request('https://us.battle.net/forums/en/wow/984270/', (error, response, html) => {
