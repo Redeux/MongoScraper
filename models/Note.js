@@ -6,10 +6,6 @@ const Schema = mongoose.Schema;
 
 // Create note schema
 const NoteSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
-  },
   body: {
     type: String,
     required: true,
