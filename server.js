@@ -13,10 +13,6 @@ const PORT = 8080 || process.env.PORT;
 // Set mongoose to leverage built in JavaScript ES6 Promises
 mongoose.Promise = Promise;
 
-// Requiring our Note and post models
-// const Post = require('./models/Post');
-const Note = require('./models/Note');
-
 // Use morgan and body parser with our app
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
@@ -50,6 +46,7 @@ app.set('view engine', 'handlebars');
 require('./routes/htmlRoutes')(app);
 require('./routes/scrapeRoutes')(app);
 require('./routes/postRoutes')(app);
+require('./routes/noteRoutes')(app);
 
 // Once logged in to the db through mongoose, log a success message and start the express server
 db.once('open', () => {
