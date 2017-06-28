@@ -6,10 +6,10 @@ module.exports = (app) => {
       postController.savePost(req.params.id, req.body, (response) => {
         res.json(response);
       });
+    })
+    .delete((req, res) => {
+      postController.deletePost(req.params.id, (response) => {
+        res.json(response);
+      });
     });
-  // .delete((req, res) => {
-  //   postController.deletePost(req.params.id, (response) => {
-  //     res.json(response);
-  //   });
-  // });
 };
